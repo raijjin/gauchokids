@@ -1,66 +1,345 @@
 body,
 html {
   height: 100%;
+  box-sizing: border-box;
 }
 
 //- HEADER
 .site-header {
-  background: url('images/gkids banner.png');
   position: fixed;
   width: 100%;
-  height: 15%;
   overflow: none;
+  height: 10%;
+  background-color: white;
+  display: flex;
+  z-index: 300;
 }
 
-ul.nav.navbar-nav.navbar-right {
-  margin-right: 24%;
-  margin-top: 6px;
+.nav-image{
+  margin-left: 4%;
+  width: 22%;
+  margin-top: .4%;
 }
 
+.list-wrapper {
+  display: flex;
+  flex-direction: row;
+  color: black;
+  margin-left: 6%;
+  margin-top: 1.4%;
+
+
+  > li {
+    padding-right: 30px;
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+.instagram {
+  margin-left: 60%;
+  margin-top: 2.8%;
+  margin-right: 4%;
+}
+
+.twitter {
+  margin-top: 2.8%;
+}
+
+//- BODY
 #body {
   width: 100%;
   height: 100%;
+  padding-top: 5%;
+  z-index: 5;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 70%;
-  overflow: none;
-
+  height: 100%;
+  padding: 0;
   > div {
     width: inherit;
   }
-
-  .primary {
-  }
-
-  .secondary {
-    display: flex;
-    height: 30%;
-    
-    aside {
-      width: 15%;
-      height: 100%;
-    }    
-  }
 }
 
+.primary {
+  height: 80%;
+}
+
+.page-two {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+//- SLIDER
+
+.events-header {
+  position: absolute;
+  z-index: 200;
+  margin-top: 12%;
+  margin-left: 42%;
+}
+
+//- BOTTOM BOX
+.secondary {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background: -webkit-linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #00d2ff 10%, #3a7bd5 90%); /* W3C */
+}
+
+.hero-banner {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+
+}
+
+.body-text {
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100%;
+  padding-right: 14px;
+  margin-left: 10%;
+}  
+
+.events-bar {
+    width: 15%;
+    margin: none;
+    padding-top: 20px;
+}
+
+.container-text {
+  display: flex;
+  flex-direction: row;
+  margin-left: 4%;
+  margin-top: 2%;
+}
+
+.body-image {
+  display: flex;
+  flex-direction: row;
+}
+
+.paragraph {
+  margin-left: 14%;
+}
+
+.paragraph-text {
+  margin-top: 8%;
+}
+
+.description {
+  padding-bottom: 10%
+}
+
+//-EVENTS SIDEBAR
+.event-wrapper {
+  height: 10%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+//-EVENTS PAGE
+.slider {
+  display: flex;
+  flex-direction: column;
+}
+.event-wrapper {
+  list-style-type: none;
+  text-decoration: none;
+  text-align: left;
+  margin-top: 3%;
+}
+
+.date-header {
+  display: flex;
+  flex-direction: column;
+  font-color: black;
+}
+
+.blog {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.col-sm-8.col-md-9 {
+  margin-top: 4%;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.post {
+  margin-bottom: 2%;
+  background-color: #FCB647;
+  background-image: url("images/Basketball pattern.png");
+  display: flex;
+  flex-direction: row;
+  min-height: 120px;
+
+}
+
+.text-muted {
+  color: black;
+}
+
+.row {
+
+}
+
+//- FOOTER
 #footer {
-  margin-top: 30px;
   border-top: 1px solid @gray-lighter;
-  padding-top: 30px;
   color: @gray-light;
 }
 
-.gallery-image img {
-   display: block;
-   max-width: 100%;
-   height: auto;
+
+
+.game-container {
+  height: auto;
 }
 
-ul {
-  list-style-type: none;
+.game-title {
+  color: black;
+}
+
+.blog {
+  width: 100%;
+}
+
+#calendar-date {
+  width: 18%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  margin: 0 0;
+}
+
+.read-more {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.slideme {
+  max-width: 1440px;
+  max-height: 567px;
+  width: 100%;
+  height: 100%;
+}
+
+.arrow {
+  width: 12%;
+  text-transform: uppercase;
+  font-family: Helvetica Neue;
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  z-index: 150;
+  font-size: 24px;
+  color: white;
+
+  &.prev {
+    background-image: url('/images/arrow-with-circle-left.svg');
+    background-repeat: no-repeat;
+    left: 0;
+    top: 50%;
+    margin-left: 2%;
+  }
+
+  &.next {
+    background-image: url('/images/arrow-with-circle-right.svg');
+    background-repeat: no-repeat;
+    background-position: right;
+    right: 0;
+    top: 50%;
+    margin-right: 2%;
+  }
+}
+
+.overlay-container {
+  position: relative;
+}
+
+.description-gallery {
+  position: absolute;
+  text-align: center;
+  left: 44%;
+  top: 36%;
+  vertical-align: center;
+}
+
+.post-page {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  text-align: center;
+}
+
+.image-wrap {
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10px;
+}
+
+.post-sport-title {
+  text-align: center;
+}
+
+.funzone-title {
+  position: absolute;
+  width: 34%;
+  margin-top: 16%;
+  background-color: white;
+  height: auto;
+}
+
+.funzone-game-title {
+  padding-left: 10px;
+}
+
+.game-description {
+  position: absolute;
+  vertical-align: middle;
+}
+
+.funzone-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  background: -webkit-linear-gradient(180deg, #FF512F 10%, #F09819 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(180deg, #FF512F 10%, #F09819 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(180deg, #FF512F 10%, #F09819 90%); /* IE10 */
+  background:      -o-linear-gradient(180deg, #FF512F 10%, #F09819 90%); /* Opera 11.10+ */
+  background:         linear-gradient(180deg, #FF512F 10%, #F09819 90%); /* W3C */
+        
+}
+
+.gallery-images {
+  max-width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4%;
 }
 
