@@ -65,8 +65,13 @@ exports = module.exports = function(req, res) {
 				perPage: 10,
 				maxPages: 10
 			})
-			.where('state', 'published')
-			.sort('-publishedDate')
+			.find({
+				'publishedDate': {
+					'$gte': new Date()
+				}
+
+			})
+			.sort('publishedDate')
 			.populate('author categories');
 		
 		if (locals.data.category) {

@@ -1,7 +1,57 @@
 extends ../layouts/default
 
+block js
+	script.
+		$(document).ready(function() {
+			$('#slider-component').slideme({
+				arrows: true,
+				transition: 'zoom',
+				loop: true,
+				interval: 6000,
+				speed: 20000,
+				touch: true,
+				swipe: true,
+				autoslide: true,
+				autoslideHoverStop: true,
+				resizable: {
+					width: 1440,
+					height: 567,
+				}
+			});
+		});
 
 block content
 	.container
 		.primary
-		img.slider(src='images/IMGP7947.jpg')
+			.slider(id='slider-component')
+				ul.slideme
+					li.image-overlay
+						img(src='images/IMGP8463.png')
+					li.image-overlay
+						img(src='images/IMGP7947.jpg')
+		.secondary
+			.events-bar
+				aside(id='events-component')
+					| UPCOMING EVENTS
+				.event-wrapper
+					.event-date
+						aside(id='events-date')
+							each sport, index in data.events
+								div.date-header
+								ul.date-data: a(href='/blog/post/' + sport.slug) #{sport._.publishedDate.format('MMM D')}
+									li.location.sports= sport.title
+									li.location.time!= sport.content.brief
+			.hero-banner
+				.body-text
+					h1 BECOME A GKID.
+				.container-text
+					.body-image
+						img(src='images/oleole.png')
+					.paragraph
+					ul.paragraph-text
+						li GET CAUGHT IN THE ACTION!
+						h3.description Have the opportunity to get caught in the action at autograph sessions, team camps, and games.
+						li GET TO KNOW THE PLAYERS!
+						h3.description One of these Gauchos could become your favorite.
+						li BUY A GKIDS SHIRT!
+						h3.description The shirt is your ticket to the games!

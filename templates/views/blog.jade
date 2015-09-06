@@ -2,32 +2,34 @@ extends ../layouts/default
 
 mixin post(post)
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
-		h2: a(href='/blog/post/' + post.slug)= post.title
-		p.lead.text-muted Posted 
+		aside(id='calendar-date')
 			if post.publishedDate
-				| on #{post._.publishedDate.format('MMMM Do, YYYY')} 
-			if post.categories && post.categories.length
-				| in 
-				each cat, i in post.categories
-					a(href='/blog/' + cat.key)= cat.name
-					if i < post.categories.length - 1
-						| , 
-					else
-						|  
+				div.event-day
+				| #{post._.publishedDate.format('D')} 
+				div.event-month
+				| #{post._.publishedDate.format('MMM')} 
+		h2.information-event: a(href='/blog/post/' + post.slug)= post.title
+			if post.content.extended
+			.card-subtitle
+				p!= post.content.brief
+					p.read-more BUY TICKETS
+		p.lead.text-muted 
 			if post.author
 				| by #{post.author.name.first}
-		if post.image.exists
-			img(src=post._.image.fit(160,160)).img.pull-right
-		p!= post.content.brief
-		if post.content.extended
-			p.read-more: a(href='/blog/post/' + post.slug) Read more...
-
-block intro
-	.container
-		h1= data.category ? data.category.name : 'Events'
+		
 
 block content
-	.container: .row
+	.primary
+		.slider(id='slider-component')
+			h2.events-header EVENTS
+				h3.events-description UPCOMING
+			.image-wrapper
+				.image-overlay
+				img(src='/images/Basketball pattern.png')
+
+
+
+	.container-events: .row
 		.col-sm-8.col-md-9
 			if filters.category && !data.category
 				h3.text-muted Invalid Category.
@@ -42,7 +44,7 @@ block content
 							strong #{data.posts.total}
 							|  posts.
 					else
-						h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* post')}.
+
 					.blog
 						each post in data.posts.results
 							+post(post)
@@ -68,7 +70,6 @@ block content
 		
 		if data.categories.length
 			.col-sm-4.col-md-3
-				h2 Categories
 				.list-group(style='margin-top: 70px;')
 					a(href='/blog', class=!data.category ? 'active' : false).list-group-item All Categories
 					each cat in data.categories

@@ -14,7 +14,14 @@ Gallery.add({
 	name: { type: String, required: true },
 	publishedDate: { type: Date, default: Date.now },
 	heroImage: { type: Types.CloudinaryImage },
-	images: { type: Types.CloudinaryImages }
+	images: { type: Types.CloudinaryImages },
+	content: {
+	description: { type: Types.Html, wysiwyg: true, height: 400 }
+	}
+});
+
+Gallery.schema.virtual('content.full').get(function() {
+	return this.content.desciption 
 });
 
 Gallery.register();
